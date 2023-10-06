@@ -9,20 +9,13 @@ public class ShipSelection : MonoBehaviour
     [SerializeField] GameObject ShipSprite;
     [SerializeField] GameObject ShipSpritePrev;
     [SerializeField] GameObject ShipSpriteNext;
-
     [SerializeField] TextMeshProUGUI ShipName;
+    [SerializeField] Sprite[] shipSkinSprites;
+    [SerializeField] string[] shipSkinNames;
 
     public static int currentShip = 1;
     private int previousShip = 1;
-    private int nextShip = 1;
-
-    [SerializeField] Sprite[] shipSkinSprites;
-
-    private void Start()
-    {
-        //currentShip = PlayerPrefs.GetInt("player_skin");
-    }
-
+    private int nextShip = 1;    
     private void Update()
     {
         if (currentShip <= 0)
@@ -33,7 +26,6 @@ public class ShipSelection : MonoBehaviour
         {
             previousShip = currentShip - 1;
         }
-
         if (currentShip >= shipSkinSprites.Length - 1)
         {
             nextShip = 0;
@@ -45,12 +37,10 @@ public class ShipSelection : MonoBehaviour
         ShipSprite.GetComponent<Image>().sprite = shipSkinSprites[currentShip];
         ShipSpritePrev.GetComponent<Image>().sprite = shipSkinSprites[previousShip];
         ShipSpriteNext.GetComponent<Image>().sprite = shipSkinSprites[nextShip];
-
-        Debug.Log("Current ship: " + currentShip);
+        ShipName.text = shipSkinNames[currentShip];
     }
     public void GoLeft()
     {
-
         if (currentShip <= 0) {
             currentShip = shipSkinSprites.Length;
         }

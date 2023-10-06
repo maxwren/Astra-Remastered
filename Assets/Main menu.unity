@@ -7493,13 +7493,18 @@ MonoBehaviour:
   ShipSpritePrev: {fileID: 1760036150}
   ShipSpriteNext: {fileID: 933178414}
   ShipName: {fileID: 1491008734}
-  numberOfSkins: 4
   shipSkinSprites:
   - {fileID: 21300000, guid: 4bc1249cfeb2f4144af555a0dc76e27c, type: 3}
   - {fileID: 21300000, guid: 3995921227132b44984d3360ecc5598e, type: 3}
   - {fileID: 21300000, guid: b254c5c25fe604449b8f85f193ed0489, type: 3}
   - {fileID: 21300000, guid: 55399f295a8f80041bf2e24d730550fd, type: 3}
   - {fileID: 21300000, guid: b0aaae3dc93e28644a4890e881709d29, type: 3}
+  shipSkinNames:
+  - CV Scout
+  - Meteorcutter
+  - Ugly
+  - Macinspace
+  - Uglier
 --- !u!1 &1367831665
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject HangarUI;
     [SerializeField] GameObject MainMenuUI;
 
+    private void Start()
+    {
+        Cursor.visible = true; ;
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
