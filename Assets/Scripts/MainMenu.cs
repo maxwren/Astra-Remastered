@@ -33,7 +33,6 @@ public class MainMenu : MonoBehaviour
     }
     public void ConfirmShipSelection()
     {
-        player_movement.Player_skin_active = ShipSelection.currentShip;
-        PlayerPrefs.SetInt("player_skin", player_movement.Player_skin_active);
+        PlayerPrefs.SetInt("player_skin", ShipSelection.currentShip);
     }
 } 

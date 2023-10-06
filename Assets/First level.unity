@@ -17669,6 +17669,7 @@ MonoBehaviour:
   Player_skin02: {fileID: 2114084995}
   Player_skin03: {fileID: 3688811}
   Player_skin04: {fileID: 691363159}
+  Player_skin05: {fileID: 331033601}
   newCursor: {fileID: 0}
   Player_skin_choice: 1
 --- !u!1 &691363159

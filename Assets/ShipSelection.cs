@@ -12,91 +12,61 @@ public class ShipSelection : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI ShipName;
 
-    Dictionary<Sprite, int> skin_names = new Dictionary<Sprite, int>();
-
-    public static int currentShip = 1; //this is a shitty fix because well you have to manually rewrite the number of skins here
-    public static int previousShip = 1;
-    public static int nextShip = 1;
-
-    private int currentShipTest;
-    private int nextShipTest;
-    private int previousShipTest;
-
-    [SerializeField] int numberOfSkins;
+    public static int currentShip = 1;
+    private int previousShip = 1;
+    private int nextShip = 1;
 
     [SerializeField] Sprite[] shipSkinSprites;
 
     private void Start()
     {
-        currentShip = PlayerPrefs.GetInt("player_skin");
+        //currentShip = PlayerPrefs.GetInt("player_skin");
     }
 
     private void Update()
     {
-        /*
-        if ((currentShipTest >= 0) && (currentShipTest < numberOfSkins))
+        if (currentShip <= 0)
         {
-            currentShip = currentShipTest;
-        }
-
-        if ((previousShipTest >= 0) && (previousShipTest < numberOfSkins) && (previousShipTest != currentShip))
-        {
-            previousShip = previousShipTest;
-        }
-
-        if ((nextShipTest >= 0) && (nextShipTest < numberOfSkins) && (nextShipTest != currentShip)) //this condition isn't always met so it stops at 3
-        {
-            nextShip = nextShipTest;
+            previousShip = shipSkinSprites.Length - 1;
         }
         else
         {
-            nextShipTest = 0;
+            previousShip = currentShip - 1;
         }
 
-        previousShipTest = currentShipTest - 1;
-        nextShipTest = currentShipTest + 1;
-
-        if (shipSkinSprites[currentShip] != null)
+        if (currentShip >= shipSkinSprites.Length - 1)
         {
-            ShipSprite.GetComponent<Image>().sprite = shipSkinSprites[currentShip];
+            nextShip = 0;
         }
-        if (shipSkinSprites[previousShip] != null)
+        else
         {
-            ShipSpritePrev.GetComponent<Image>().sprite = shipSkinSprites[previousShip];
+            nextShip = currentShip + 1;
         }
-        if (shipSkinSprites[nextShip] != null)
-        {
-            ShipSpriteNext.GetComponent<Image>().sprite = shipSkinSprites[nextShip];
-        }
-        */
-
-        previousShip = currentShip--;
-        nextShip = currentShip++;
-
         ShipSprite.GetComponent<Image>().sprite = shipSkinSprites[currentShip];
         ShipSpritePrev.GetComponent<Image>().sprite = shipSkinSprites[previousShip];
         ShipSpriteNext.GetComponent<Image>().sprite = shipSkinSprites[nextShip];
 
-        if (previousShip < 0)
-        {
-
-        }
+        Debug.Log("Current ship: " + currentShip);
     }
-
     public void GoLeft()
     {
-        currentShipTest--;
-        if (currentShipTest < 0)
+
+        if (currentShip <= 0) {
+            currentShip = shipSkinSprites.Length;
+        }
+        if (currentShip > 0)
         {
-            currentShipTest = numberOfSkins;
+            currentShip--;
         }
     }
     public void GoRight()
     {
-        currentShipTest++;
-        if (currentShipTest > numberOfSkins)
+        if (currentShip >= shipSkinSprites.Length - 1) {
+            currentShip = 0;
+        }
+        else
         {
-            currentShipTest = 0;
+            currentShip++;
         }
     }
 }

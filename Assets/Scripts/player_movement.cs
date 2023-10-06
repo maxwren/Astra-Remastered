@@ -71,6 +71,7 @@ public class player_movement : MonoBehaviour
     //THIS PART OF CODE DECLARES FUNCTIONS:
     void Start()
     {
+        Player_skin_active = 1 + PlayerPrefs.GetInt("player_skin");
         gravity_field_trigger.playerHasField = false;
         player.GetComponent<PolygonCollider2D>().enabled = true;
         player_rb = GetComponent<Rigidbody2D>();
@@ -90,12 +91,11 @@ public class player_movement : MonoBehaviour
                 if (GameObject.Find(skin_name) != null)
                 {
                     ship_names.Add(skin_name, i);
-                    if (i != ShipSelection.currentShip-1)
+                    //if (i != ShipSelection.currentShip-1)
+                    if (i != Player_skin_active)
                     {
                         GameObject.Find(skin_name).SetActive(false);
                     }
-                    Debug.Log(skin_name);
-                    Debug.Log(i);
                 }
                 else
                 {
