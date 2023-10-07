@@ -40,6 +40,7 @@ public class player_movement : MonoBehaviour
     public AudioSource explosion_sound = null;
     public Vector2 player_speed = new Vector2(10, 10);
     private Vector2 char_movement;
+    private Vector3 char_movement_touch;
     [SerializeField] GameObject gravityField;
     [SerializeField] GameObject forceShield;
     [SerializeField] GameObject gunGameObject;
@@ -54,6 +55,9 @@ public class player_movement : MonoBehaviour
 
     [SerializeField] GameObject newCursor;
 
+    [SerializeField] bool touchControls;
+    [SerializeField] float joystick_offset;
+
     private bool search_stopper = false;
 
     Dictionary<string, int> ship_names = new Dictionary<string, int>();
@@ -64,6 +68,8 @@ public class player_movement : MonoBehaviour
     //THIS SHOULD LATER CHANGE ACCODRING TO PLAYER'S CHOICE
 
     Animator animator;
+
+    public Joystick joystick;
 
     //Find a game object by name or tag
     //If it exists within the given standard, add it to the list or dictionary
@@ -143,7 +149,6 @@ public class player_movement : MonoBehaviour
     }
     void Update()
     {
-        //HERE
         if (Input.GetButtonDown("Fire1"))
         {
             isMousePressed = true;
@@ -157,60 +162,12 @@ public class player_movement : MonoBehaviour
             //Cursor.visible = false;
         }
         Cursor.visible = false;
-        /*
-        if (Player_skin_active == 1)
-        {
-            Player_skin01.SetActive(true);
-
-            Player_skin02.SetActive(false);
-            Player_skin03.SetActive(false);
-            Player_skin04.SetActive(false);
-        }
-        if (Player_skin_active == 2)
-        {
-            Player_skin02.SetActive(true);
-
-            Player_skin01.SetActive(false);
-            Player_skin03.SetActive(false);
-            Player_skin04.SetActive(false);
-        }
-        if (Player_skin_active == 3)
-        {
-            Player_skin03.SetActive(true);
-
-            Player_skin01.SetActive(false);
-            Player_skin02.SetActive(false);
-            Player_skin04.SetActive(false);
-        }
-        if (Player_skin_active == 4)
-        {
-            Player_skin04.SetActive(true);
-
-            Player_skin01.SetActive(false);
-            Player_skin02.SetActive(false);
-            Player_skin03.SetActive(false);
-        }
-        */
-
-        /*
-        else //in case no skin is chosen, the default one is applied
-        {
-            Debug.Log("Error: Player Choice : " + Player_skin_choice + " Player Skin Active : " + Player_skin_active);
-            Player_skin01.SetActive(true);
-
-            Player_skin02.SetActive(false);
-            Player_skin03.SetActive(false);
-        }
-        */
-
         //Cursor.visible = false; this shit isn't too good
         if (!isPlayerDead)
         {
             float inputX = Input.GetAxis("Horizontal");
             float inputY = Input.GetAxis("Vertical");
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-            //
             if (Input.GetKey(KeyCode.W))
             {
                 rotationZ_value = 15f;
@@ -219,9 +176,14 @@ public class player_movement : MonoBehaviour
             {
                 rotationZ_value = -15f;
             }
-            //
-
-            char_movement = new Vector2(inputX, inputY);
+            //TOUCH CONTROLS
+            if (touchControls)
+            {
+                char_movement = new Vector2(joystick.Horizontal, joystick.Vertical).normalized / joystick_offset;
+            } else
+            {
+                char_movement = new Vector2(inputX, inputY);
+            }
 
             if (gravity_field_trigger.playerHasField)
             {

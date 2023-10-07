@@ -17,13 +17,6 @@ public class change_hp : MonoBehaviour
     const string HEALTH1 = "Health1";
     const string HEALTH0 = "Health0";
     const string HEALTHTR = "HealthTR";
-
-    //[SerializeField] float hp_timer = 0.2f;
-    private float timer;
-
-    private bool transition_check = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();

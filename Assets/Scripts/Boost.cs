@@ -11,7 +11,6 @@ public class Boost : MonoBehaviour
     public AudioSource boost_sound = null;
 
     public static bool is_boost_applied = false;
-    private float boostEnding = 0f;
 
     float currentTime = 0f;
     public static float boostDuration = 5f;
