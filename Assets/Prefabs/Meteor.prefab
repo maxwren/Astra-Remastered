@@ -135,6 +135,16 @@ MonoBehaviour:
   meteor_sprite_3: {fileID: 5194850329645295666, guid: be8e849a1cd03cd40b266421d3ff18ce, type: 3}
   meteor_sprite_4: {fileID: 125252999019601724, guid: be8e849a1cd03cd40b266421d3ff18ce, type: 3}
   meteor_sprite_5: {fileID: 8024223004185217563, guid: be8e849a1cd03cd40b266421d3ff18ce, type: 3}
+  meteor_sprite_2hp_1: {fileID: 3922199859944565686, guid: 5da90cb3e92bf524ab8c791cb34ec499, type: 3}
+  meteor_sprite_2hp_2: {fileID: -3856553619855897216, guid: 5da90cb3e92bf524ab8c791cb34ec499, type: 3}
+  meteor_sprite_2hp_3: {fileID: -5482557178908082718, guid: 5da90cb3e92bf524ab8c791cb34ec499, type: 3}
+  meteor_sprite_2hp_4: {fileID: 5354096433915130204, guid: 5da90cb3e92bf524ab8c791cb34ec499, type: 3}
+  meteor_sprite_2hp_5: {fileID: -8893979708133150839, guid: 5da90cb3e92bf524ab8c791cb34ec499, type: 3}
+  meteor_sprite_1hp_1: {fileID: 6641241859344980714, guid: e3135735c25f4bd43a8aa2aaac2c8496, type: 3}
+  meteor_sprite_1hp_2: {fileID: 5920536495617311408, guid: e3135735c25f4bd43a8aa2aaac2c8496, type: 3}
+  meteor_sprite_1hp_3: {fileID: 758491684171026369, guid: e3135735c25f4bd43a8aa2aaac2c8496, type: 3}
+  meteor_sprite_1hp_4: {fileID: 2047690862735696371, guid: e3135735c25f4bd43a8aa2aaac2c8496, type: 3}
+  meteor_sprite_1hp_5: {fileID: -5662161322527227605, guid: e3135735c25f4bd43a8aa2aaac2c8496, type: 3}
   explosion_sound: {fileID: 7824008438553489074, guid: 069a900e3e4f4a446bca316245110ac0, type: 3}
 --- !u!95 &-4666115188567619477
 Animator:

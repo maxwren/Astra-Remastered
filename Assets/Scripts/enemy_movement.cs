@@ -34,6 +34,17 @@ public class enemy_movement : MonoBehaviour
     private string currentState;
     const string METEOR_EXPLOSION = "MeteorExplosion";
     const string METEOR_IDLE = "MeteorIdle";
+    const string METEOR1_HP2 = "meteor1hp2";
+    const string METEOR2_HP2 = "meteor2hp2";
+    const string METEOR3_HP2 = "meteor3hp2";
+    const string METEOR4_HP2 = "meteor4hp2";
+    const string METEOR5_HP2 = "meteor5hp2";
+
+    const string METEOR1_HP1 = "meteor1hp1";
+    const string METEOR2_HP1 = "meteor2hp1";
+    const string METEOR3_HP1 = "meteor3hp1";
+    const string METEOR4_HP1 = "meteor4hp1";
+    const string METEOR5_HP1 = "meteor5hp1";
 
     private bool was_meteor_hit = false;
 
@@ -54,6 +65,20 @@ public class enemy_movement : MonoBehaviour
     [SerializeField] Sprite meteor_sprite_3;
     [SerializeField] Sprite meteor_sprite_4;
     [SerializeField] Sprite meteor_sprite_5;
+
+    [SerializeField] Sprite meteor_sprite_2hp_1;
+    [SerializeField] Sprite meteor_sprite_2hp_2;
+    [SerializeField] Sprite meteor_sprite_2hp_3;
+    [SerializeField] Sprite meteor_sprite_2hp_4;
+    [SerializeField] Sprite meteor_sprite_2hp_5;
+
+    [SerializeField] Sprite meteor_sprite_1hp_1;
+    [SerializeField] Sprite meteor_sprite_1hp_2;
+    [SerializeField] Sprite meteor_sprite_1hp_3;
+    [SerializeField] Sprite meteor_sprite_1hp_4;
+    [SerializeField] Sprite meteor_sprite_1hp_5;
+
+    private int meteor_type;
 
     public AudioSource explosion_sound = null;
 
@@ -90,22 +115,27 @@ public class enemy_movement : MonoBehaviour
         if (randomSprite == 1)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_1;
+            meteor_type = 1;
         }
         if (randomSprite == 2)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_2;
+            meteor_type = 2;
         }
         if (randomSprite == 3)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_3;
+            meteor_type = 3;
         }
         if (randomSprite == 4)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_4;
+            meteor_type = 4;
         }
         if (randomSprite == 5)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_5;
+            meteor_type = 5;
         }
     }
 
@@ -164,6 +194,52 @@ public class enemy_movement : MonoBehaviour
             if (timer > explosion_timer)
             {
                 Destroy(this.gameObject);
+            }
+        }
+        if (meteor_hp == 2)
+        {
+            if (meteor_type == 1)
+            {
+                ChangeAnimationState("meteor1hp2");
+            }
+            if (meteor_type == 2)
+            {
+                ChangeAnimationState("meteor2hp2");
+            }
+            if (meteor_type == 3)
+            {
+                ChangeAnimationState("meteor3hp2");
+            }
+            if (meteor_type == 4)
+            {
+                ChangeAnimationState("meteor4hp2");
+            }
+            if (meteor_type == 5)
+            {
+                ChangeAnimationState("meteor5hp2");
+            }
+        }
+        if (meteor_hp == 1)
+        {
+            if (meteor_type == 1)
+            {
+                ChangeAnimationState("meteor1hp1");
+            }
+            if (meteor_type == 2)
+            {
+                ChangeAnimationState("meteor2hp1");
+            }
+            if (meteor_type == 3)
+            {
+                ChangeAnimationState("meteor3hp1");
+            }
+            if (meteor_type == 4)
+            {
+                ChangeAnimationState("meteor4hp1");
+            }
+            if (meteor_type == 5)
+            {
+                ChangeAnimationState("meteor5hp1");
             }
         }
     }
