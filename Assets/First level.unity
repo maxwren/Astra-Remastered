@@ -17795,7 +17795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 10706250}
   spaceshipWidth: 0.11
-  spaceshipHeight: 0.22
+  spaceshipHeight: 0.11
   explosion_timer: 1
   mouseControl: 0
   externalForce: {x: 0, y: 0}

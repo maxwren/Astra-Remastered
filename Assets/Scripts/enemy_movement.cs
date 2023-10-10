@@ -30,7 +30,7 @@ public class enemy_movement : MonoBehaviour
     private SpriteRenderer sprite_renderer;
 
     public player_movement script;
-    Animator animator;
+    public Animator animator;
     private string currentState;
     const string METEOR_EXPLOSION = "MeteorExplosion";
     const string METEOR_IDLE = "MeteorIdle";
@@ -58,7 +58,7 @@ public class enemy_movement : MonoBehaviour
 
     public static bool playMeteorSound;
 
-    [SerializeField] int meteor_hp = 6;
+    [SerializeField] int meteor_hp = 3;
 
     [SerializeField] Sprite meteor_sprite_1;
     [SerializeField] Sprite meteor_sprite_2;
@@ -116,26 +116,31 @@ public class enemy_movement : MonoBehaviour
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_1;
             meteor_type = 1;
+            animator.SetInteger("meteor_type", 1);
         }
         if (randomSprite == 2)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_2;
             meteor_type = 2;
+            animator.SetInteger("meteor_type", 2);
         }
         if (randomSprite == 3)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_3;
             meteor_type = 3;
+            animator.SetInteger("meteor_type", 3);
         }
         if (randomSprite == 4)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_4;
             meteor_type = 4;
+            animator.SetInteger("meteor_type", 4);
         }
         if (randomSprite == 5)
         {
             enemy.GetComponent<SpriteRenderer>().sprite = meteor_sprite_5;
             meteor_type = 5;
+            animator.SetInteger("meteor_type", 5);
         }
     }
 
@@ -200,46 +205,46 @@ public class enemy_movement : MonoBehaviour
         {
             if (meteor_type == 1)
             {
-                ChangeAnimationState("meteor1hp2");
+                ChangeAnimationState(METEOR1_HP2);
             }
             if (meteor_type == 2)
             {
-                ChangeAnimationState("meteor2hp2");
+                ChangeAnimationState(METEOR2_HP2);
             }
             if (meteor_type == 3)
             {
-                ChangeAnimationState("meteor3hp2");
+                ChangeAnimationState(METEOR3_HP2);
             }
             if (meteor_type == 4)
             {
-                ChangeAnimationState("meteor4hp2");
+                ChangeAnimationState(METEOR4_HP2);
             }
             if (meteor_type == 5)
             {
-                ChangeAnimationState("meteor5hp2");
+                ChangeAnimationState(METEOR5_HP2);
             }
         }
         if (meteor_hp == 1)
         {
             if (meteor_type == 1)
             {
-                ChangeAnimationState("meteor1hp1");
+                ChangeAnimationState(METEOR1_HP1);
             }
             if (meteor_type == 2)
             {
-                ChangeAnimationState("meteor2hp1");
+                ChangeAnimationState(METEOR1_HP1);
             }
             if (meteor_type == 3)
             {
-                ChangeAnimationState("meteor3hp1");
+                ChangeAnimationState(METEOR1_HP1);
             }
             if (meteor_type == 4)
             {
-                ChangeAnimationState("meteor4hp1");
+                ChangeAnimationState(METEOR1_HP1);
             }
             if (meteor_type == 5)
             {
-                ChangeAnimationState("meteor5hp1");
+                ChangeAnimationState(METEOR1_HP1);
             }
         }
     }

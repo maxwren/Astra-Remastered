@@ -128,6 +128,7 @@ MonoBehaviour:
   enemy: {fileID: 1611576671894596749}
   enemyCollider: {fileID: 2871160712997079474}
   script: {fileID: 1042793563779418374, guid: e82c53aa0abd97e4a9feaecfb8eeb89e, type: 3}
+  animator: {fileID: -4666115188567619477}
   is_boost_applied: 0
   meteor_hp: 3
   meteor_sprite_1: {fileID: -2228346584162128432, guid: be8e849a1cd03cd40b266421d3ff18ce, type: 3}
@@ -154,7 +155,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611576671894596749}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 52881289468eb304985c15f0403b7042, type: 2}
   m_CullingMode: 0
