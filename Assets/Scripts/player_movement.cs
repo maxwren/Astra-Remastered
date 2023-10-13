@@ -6,7 +6,7 @@ public class player_movement : MonoBehaviour
 {
     //THIS CODE DECLARES VARIABLES:
     //FLOATS:
-    public static float player_hp = 5;
+    public static int player_hp = 5; // it used to be float for some reason, I've changed it so expect errors
     private float timer;
     private float rotationZ_value;
     private float rotationZ;
@@ -57,6 +57,7 @@ public class player_movement : MonoBehaviour
 
     [SerializeField] bool touchControls;
     [SerializeField] float joystick_offset;
+    [SerializeField] Animator healthbar_anim;
 
     private bool search_stopper = false;
 
@@ -266,6 +267,7 @@ public class player_movement : MonoBehaviour
                 UnityEngine.SceneManagement.SceneManager.LoadScene("First level");
             }
         }
+        healthbar_anim.SetInteger("player_hp", player_hp);
     }
     private void FixedUpdate()
     {

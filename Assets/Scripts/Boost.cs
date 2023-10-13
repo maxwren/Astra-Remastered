@@ -31,9 +31,9 @@ public class Boost : MonoBehaviour
             boostTrigger.GetComponent<SpriteRenderer>().enabled = false;
             is_boost_applied = true;
             old_enemy_speed = enemy_movement.enemy_speed.x;
-            enemy_movement.enemy_speed.x *= 2;
-            BG_moving_2.bg_moving_speed *= 2f;
-            asteroid_moving.bgmeteorSpeed *= 2f;
+            enemy_movement.enemy_speed.x *= 3;
+            BG_moving_2.bg_moving_speed *= 3;
+            asteroid_moving.bgmeteorSpeed *= 3;
             boost_sound.Play();
             shouldWeDisplayDoubleScore = true;
             boostStopper = true;
@@ -53,8 +53,8 @@ public class Boost : MonoBehaviour
         {
             is_boost_applied = false;
             enemy_movement.enemy_speed.x = fake_enemy_speed;
-            BG_moving_2.bg_moving_speed /= 2f;
-            asteroid_moving.bgmeteorSpeed /= 2f;
+            BG_moving_2.bg_moving_speed /= 3;
+            asteroid_moving.bgmeteorSpeed /= 3;
             shall_we_boost = false;
             shouldWeDisplayDoubleScore = false;
             noBoostStopper = true;

@@ -48,8 +48,8 @@ public class enemy_movement : MonoBehaviour
 
     private bool was_meteor_hit = false;
 
-    [SerializeField] public static Vector2 enemy_speed = new Vector2(1, 0);
-    [SerializeField] public static Vector2 fake_enemy_speed = new Vector2(1, 0);
+    [SerializeField] public static Vector2 enemy_speed = new Vector2(0.5f, 0);
+    [SerializeField] public static Vector2 fake_enemy_speed = new Vector2(0.5f, 0);
 
     private bool clockwise;
 
@@ -109,7 +109,7 @@ public class enemy_movement : MonoBehaviour
         }
         rotationSpeed = Random.Range(0.1f, 0.5f);
         rotationZ = 1;
-        speedY = Random.Range(0.1f, -0.1f);
+        speedY = Random.Range(0.05f, -0.05f);
 
         randomSprite = Random.Range(1, 6); // choosing random sprite for our meteor
         if (randomSprite == 1)
@@ -201,6 +201,8 @@ public class enemy_movement : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        animator.SetInteger("meteor_hp", meteor_hp);
+        /* This will be done through Animator in Unity
         if (meteor_hp == 2)
         {
             if (meteor_type == 1)
@@ -247,6 +249,7 @@ public class enemy_movement : MonoBehaviour
                 ChangeAnimationState(METEOR1_HP1);
             }
         }
+        */
     }
     private void FixedUpdate()
     {
